@@ -1,0 +1,30 @@
+.outter-block {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.inner-block {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+  text-align: center  ;
+  width: 300px;
+  padding: 10px;
+}
+
+input{
+  margin-bottom: 8px;
+  text-align: center;
+  height: 40px;
+}
+
+.authButton {
+  margin-bottom: 10px;
+  height: 40px;
+  width: 100%;
+}
+
+// @media only screen and (max-width: 728px) {
+ 
+// }

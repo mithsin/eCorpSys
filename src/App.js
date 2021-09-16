@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React, { Suspense, lazy } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import './App.css';
+
+const Dashboard = lazy(() => import('./Pages/Dashboard'));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Switch>
+          {/* <Route exact path="/login" component = { Login } /> */}
+          {/* <Route exact path="/" component = { Dashboard } /> */}
+          {/* <Route exact path="/signup" component = { SignUp } />
+          <Route exact path="/card/:cardlink" component = { CardLink } /> */}
+          <Suspense fallback={<div>Loading...</div>}><Route exact path="/" component = { Dashboard } /></Suspense>
+        </Switch>
     </div>
   );
 }

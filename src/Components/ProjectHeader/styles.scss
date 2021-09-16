@@ -1,0 +1,15 @@
+.HeaderWrapper {
+    border-bottom: 1px solid black;
+    padding-bottom: 1rem;
+    display: flex; 
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    .ProjectList {
+        margin: .5rem;
+        border-bottom: 1px solid black;
+    }
+}
+.gridColumn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

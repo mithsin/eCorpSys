@@ -1,13 +1,26 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Provider } from 'react-redux';
+import UserStatusProvider from './utils/UserStatusProvider';
+import store from './Store';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <UserStatusProvider>
+      <Router>
+        <App />
+      </Router>
+    </UserStatusProvider>
+  </Provider>,
   document.getElementById('root')
 );
 
