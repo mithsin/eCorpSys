@@ -17,12 +17,15 @@ const ProjectTable = ({title, list}) => {
                 </thead>
                 <tbody>
                     {list?.map((item, index)=>{
-                        const itemList = Object.values(item);
+                        const itemList = Object.entries(item);
+                        console.log('item-> ', item)
+
+                        console.log('itemList-> ', itemList)
                         return <tr key={`list-${index}`} className="tbodyTr">
                             {itemList.map((val, idx) => {
-                                const newVal = (typeof val === "string" && val) || (typeof val === "boolean" && val === true ? "Y" : "N") ;
+                                // const newVal = (typeof val[1] === "string" && val[1]) || (typeof val[1] === "boolean" && val[1] === true ? "Y" : "N") ;
                                 return <td key={`val-${idx}`}>
-                                    {newVal }
+                                    {/* {newVal } */}
                                 </td>
                             })}
                         </tr>
