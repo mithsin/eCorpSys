@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fullData } from  'MockData';
+import { ProjectsData } from  'MockData';
 import axios from 'axios';
 
 export const projectSlice = createSlice({
     name: 'projectState',
     initialState: {
-        projects: [fullData]
+        projects: ProjectsData
     },
     reducers: {
         setProjectState: (state, action) => {
@@ -14,6 +14,6 @@ export const projectSlice = createSlice({
     },
 });
 
-export const projectState = state => state.projectState.projects;
+export const projectsState = state => state.projectState.projects;
 
 export default projectSlice.reducer;

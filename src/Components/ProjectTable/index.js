@@ -1,8 +1,9 @@
 import React from 'react';
-import { capitalString } from 'utils/util';
+import { capitalString, tableFormatter } from 'utils/util';
 import './styles.scss';
 
 const ProjectTable = ({title, list}) => {
+    console.log('list: ', list)
     const allKeys = Object.keys(list[0]);
     return(
         <div className="ProjectTableWrapper">
@@ -18,14 +19,17 @@ const ProjectTable = ({title, list}) => {
                 <tbody>
                     {list?.map((item, index)=>{
                         const itemList = Object.entries(item);
-                        console.log('item-> ', item)
+                        // console.log('item-> ', item)
 
-                        console.log('itemList-> ', itemList)
+                        // console.log('itemList-> ', itemList)
                         return <tr key={`list-${index}`} className="tbodyTr">
                             {itemList.map((val, idx) => {
-                                // const newVal = (typeof val[1] === "string" && val[1]) || (typeof val[1] === "boolean" && val[1] === true ? "Y" : "N") ;
+                                const newVal = tableFormatter(val);
                                 return <td key={`val-${idx}`}>
-                                    {/* {newVal } */}
+                                    {newVal?.type === "array" 
+                                        ? <div>{newVal.value.map(list => <span>{list}</span>)}</div>
+                                        : newVal?.value
+                                    }
                                 </td>
                             })}
                         </tr>

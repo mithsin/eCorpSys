@@ -10,18 +10,22 @@ export const tableFormatter = (prop) => {
     const value = prop[1];
 
     const typeIsArray = ["status"].find(ele => ele === key);
+    // const typeIsString = [].find(ele=> ele === key);
+    const typeIsPercentage = ["comopleted"].find(ele => ele === key);
 
     if(typeIsArray){
         return {type: "array", value}
-    } 
+    }
+    if(typeIsPercentage){
+        return {type: "percent", value: `${value}%`}
+    }
     if(typeof value === "boolean") {
         return value ? "Y" : "N";
     }
-    if(typeof value === "string") {
-        return string;
-    }
-    
-        return {type: "show", value}
+    // if(typeIsString){
+    //     return {type: "string", value}
+    // }
+    return {type: "show", value}
     
 
 

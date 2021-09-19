@@ -1,4 +1,5 @@
-export const fullData = {
+export const ProjectsData = [{
+    projectId: 'project1234',
     projetTitle: "161 Project Schedule",
     constructionManager: "GREYSTAR CONSTRUCTION",
     projectScope: "WINDOWS",
@@ -12,70 +13,70 @@ export const fullData = {
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Door Hardware",
         proData: true,
         shopDwg: true,
         eng: false,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Bi-fold Door - 12th Floor",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Skylight - FL 13 Podium",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Windscreen - FL 29",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "All Glass Entrances - FL 12 Interior",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Int. Alum. Entrances",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Glazed Alum. Curtain Walls",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Glazed Alum. Window Walls",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     },{
         deliverable: "Glass Glazing",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: true
+        status: ['true']
     }],
     material: [{
         deliverable: "Window Walls",
@@ -93,7 +94,7 @@ export const fullData = {
     }],
     installation: [{
         deliverable: "Window Walls",
-        comopletePercent: 95,
+        comopleted: 95,
         ready: true,
         start: true,
         end: false,
@@ -105,4 +106,4 @@ export const fullData = {
             message: "this is test 2"
         }]
     }]
-}
+}]
