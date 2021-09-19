@@ -3,7 +3,6 @@ import { capitalString, tableFormatter } from 'utils/util';
 import './styles.scss';
 
 const ProjectTable = ({title, list}) => {
-    console.log('list: ', list)
     const allKeys = Object.keys(list[0]);
     return(
         <div className="ProjectTableWrapper">
@@ -19,15 +18,16 @@ const ProjectTable = ({title, list}) => {
                 <tbody>
                     {list?.map((item, index)=>{
                         const itemList = Object.entries(item);
-                        // console.log('item-> ', item)
-
-                        // console.log('itemList-> ', itemList)
                         return <tr key={`list-${index}`} className="tbodyTr">
                             {itemList.map((val, idx) => {
                                 const newVal = tableFormatter(val);
                                 return <td key={`val-${idx}`}>
                                     {newVal?.type === "array" 
-                                        ? <div>{newVal.value.map(list => <span>{list}</span>)}</div>
+                                        ? newVal?.value?.map((list, idx) => 
+                                            <tr key={`span-${idx}`}>
+                                                <td >{`${list.date} ${list.message}`}</td>
+                                            </tr>
+                                            )
                                         : newVal?.value
                                     }
                                 </td>

@@ -13,70 +13,100 @@ export const ProjectsData = [{
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Door Hardware",
         proData: true,
         shopDwg: true,
         eng: false,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Bi-fold Door - 12th Floor",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Skylight - FL 13 Podium",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Windscreen - FL 29",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "All Glass Entrances - FL 12 Interior",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Int. Alum. Entrances",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Glazed Alum. Curtain Walls",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Glazed Alum. Window Walls",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     },{
         deliverable: "Glass Glazing",
         proData: true,
         shopDwg: true,
         eng: true,
         sample: true,
-        status: ['true']
+        status: [{
+            date: "1/12/2020",
+            message: "this is a test"
+        }]
     }],
     material: [{
         deliverable: "Window Walls",

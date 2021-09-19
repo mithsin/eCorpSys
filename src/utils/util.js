@@ -20,7 +20,8 @@ export const tableFormatter = (prop) => {
         return {type: "percent", value: `${value}%`}
     }
     if(typeof value === "boolean") {
-        return value ? "Y" : "N";
+        return {type: "boolean", value: value ? "Y" : "N"}
+
     }
     // if(typeIsString){
     //     return {type: "string", value}

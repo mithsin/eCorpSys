@@ -13,11 +13,11 @@ const Dashboard = () => {
         <div>
             <h1>Hello</h1>
            {
-               projectDataState.map(project => 
+               projectDataState.map(project =>
                 <div 
                     onClick={()=> 
                         (history.push(`/${project.projectId}`))
-                }>{project.projectId}</div>)
+                }>{project.projetTitle}</div>)
            }
         </div>
     );
