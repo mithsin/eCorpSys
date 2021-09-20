@@ -9,16 +9,20 @@ import { Provider } from 'react-redux';
 import UserStatusProvider from './utils/UserStatusProvider';
 import store from './Store';
 import reportWebVitals from './reportWebVitals';
-
 import { BrowserRouter as Router } from 'react-router-dom';
+
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 
 ReactDOM.render(
   <Provider store={store}>
     <UserStatusProvider>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
       <Router>
         <App />
       </Router>
+      </LocalizationProvider>
     </UserStatusProvider>
   </Provider>,
   document.getElementById('root')
