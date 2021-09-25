@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { userLogin, userLogout } from 'States/cognitoSlice';
 import { useDispatch } from 'react-redux';
-import './styles.scss';
+import './styles.module.scss';
 
 const Login = () => {
     const history = useHistory();

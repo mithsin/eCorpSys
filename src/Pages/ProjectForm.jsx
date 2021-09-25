@@ -1,45 +1,13 @@
 import React, { useState } from 'react';
 import {MuiButton, MuiInputField} from 'Components/MUI';
 import { v4 as uuidv4 } from 'uuid';
+import {inputSettings, } from './formFormat';
+import styles from './styles.module.scss';
 
 const ProjectForm = () => {
     const [formInputs, setFormInputs] = useState({});
-
-    // input box setting
-    const inputSettings = [
-        {
-            type: "text",
-            name: "projetTitle",
-            placeholder: "Projet Title",
-            required: true
-        },{
-            type: "text",
-            name: "constructionManager", 
-            placeholder: "Construction Manager"
-        },{
-            type: "text",
-            name: "projectScope", 
-            placeholder: "Project Scope"
-        },{
-            type: "date",
-            name: "projectDate",
-            placeholder: "Project Date",
-            required: true
-        },{
-            type: "text",
-            name: "subcontract", 
-            placeholder: "Subcontract"
-        },{
-            type: "date",
-            name: "subcontractDate", 
-            placeholder: "Subcontract Date"
-        },{
-            type: "text",
-            name: "updateBy", 
-            placeholder: "Update By"
-        }
-    ];
-
+    const [inputSubmittals, setInputSubmittals] = useState(inputSubmittals)
+    
     const formInputChange = (e) => {
         
         if (e.type === 'date'){
@@ -60,19 +28,19 @@ const ProjectForm = () => {
     };
 
     return(
-        <div>
-        {
-            inputSettings.map((inputSetting, index)=>
-                <MuiInputField
-                    key={`${index}-inputsetting`}
-                    bgColor="#fff"
-                    type={inputSetting.type}
-                    name={inputSetting.name}
-                    label={inputSetting.placeholder}
-                    {...(inputSetting.required && {required: inputSetting.required})}
-                    onChange={ formInputChange }/>
-            )
-        }
+        <div className={styles.ProjectFormWrapper}>
+            {
+                inputSettings.map((inputSetting, index)=>
+                    <MuiInputField
+                        key={`${index}-inputsetting`}
+                        bgColor="#fff"
+                        type={inputSetting.type}
+                        name={inputSetting.name}
+                        label={inputSetting.placeholder}
+                        {...(inputSetting.required && {required: inputSetting.required})}
+                        onChange={ formInputChange }/>
+                )
+            }
             <MuiButton 
                 bgColor="#fff"
                 labelColor="#000"

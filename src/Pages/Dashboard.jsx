@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { projectsState } from 'States/projectSlice';
 import { useHistory } from 'react-router-dom'
-import './styles.scss';
+import './styles.module.scss';
 
 
 

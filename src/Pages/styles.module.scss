@@ -25,6 +25,17 @@ input{
   width: 100%;
 }
 
+// ProjectForm.jsx
+.ProjectFormWrapper {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    width: 15rem;
+    margin: 0 1rem 1rem 0;
+  }
+}
+
 // @media only screen and (max-width: 728px) {
  
 // }
