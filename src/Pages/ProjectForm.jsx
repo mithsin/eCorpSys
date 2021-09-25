@@ -26,7 +26,7 @@ const ProjectForm = () => {
     const onClickAddProject = () => {
         console.log('formInputs->: ', formInputs)
     };
-
+    console.log('inputSubmittals-->: ', inputSubmittals)
     return(
         <div className={styles.ProjectFormWrapper}>
             {

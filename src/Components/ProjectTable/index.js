@@ -11,7 +11,7 @@ const ProjectTable = ({title, list}) => {
                 <thead>
                     <tr>
                         {allKeys?.map((title, index)=>
-                            <th key={`title-${index}`}><b>{capitalString(title)}</b></th>
+                            title !== "id" && <th key={`title-${index}`}><b>{capitalString(title)}</b></th>
                         )}
                     </tr>
                 </thead>
@@ -19,7 +19,7 @@ const ProjectTable = ({title, list}) => {
                     {list?.map((item, index)=>{
                         const itemList = Object.entries(item);
                         return <tr key={`list-${index}`} className="tbodyTr">
-                            {itemList.map((val, idx) => {
+                            {(itemList.filter(item=> item[0] !== "id")).map((val, idx) => {
                                 const newVal = tableFormatter(val);
                                 return <td key={`val-${idx}`}>
                                     {newVal?.type === "array" 

@@ -9,7 +9,7 @@ export const tableFormatter = (prop) => {
     const key = prop[0];
     const value = prop[1];
 
-    const typeIsArray = ["status"].find(ele => ele === key);
+    const typeIsArray = [].find(ele => ele === key);
     // const typeIsString = [].find(ele=> ele === key);
     const typeIsPercentage = ["comopleted"].find(ele => ele === key);
 
