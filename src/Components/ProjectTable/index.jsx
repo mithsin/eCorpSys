@@ -2,8 +2,9 @@ import React from 'react';
 import { capitalString, tableFormatter } from 'utils/util';
 import './styles.scss';
 
+const filterOutId = (filterList) => filterList.filter(item => !item?.id);
 const ProjectTable = ({title, list}) => {
-    const allKeys = Object.keys(list[0]);
+    const allKeys = Object.keys(filterOutId(list[0]));
     return(
         <div className="ProjectTableWrapper">
             <h2>{title}</h2>
@@ -16,7 +17,7 @@ const ProjectTable = ({title, list}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {list?.map((item, index)=>{
+                    {filterOutId(list)?.map((item, index)=>{
                         const itemList = Object.entries(item);
                         return <tr key={`list-${index}`} className="tbodyTr">
                             {itemList.map((val, idx) => {

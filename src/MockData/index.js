@@ -8,6 +8,7 @@ export const ProjectsData = [{
     subcontractDate: "9/14/21",
     updateBy: "HH",
     submittals: [{
+        id: 'submittals-111',
         deliverable: "Fire Rated Alum. SF - P10 & P11",
         proData: true,
         shopDwg: true,
@@ -18,6 +19,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-111',
         deliverable: "Door Hardware",
         proData: true,
         shopDwg: true,
@@ -28,6 +30,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-111',
         deliverable: "Bi-fold Door - 12th Floor",
         proData: true,
         shopDwg: true,
@@ -38,6 +41,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-111',
         deliverable: "Skylight - FL 13 Podium",
         proData: true,
         shopDwg: true,
@@ -48,6 +52,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-222',
         deliverable: "Windscreen - FL 29",
         proData: true,
         shopDwg: true,
@@ -58,6 +63,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-333',
         deliverable: "All Glass Entrances - FL 12 Interior",
         proData: true,
         shopDwg: true,
@@ -68,6 +74,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-444',
         deliverable: "Int. Alum. Entrances",
         proData: true,
         shopDwg: true,
@@ -78,6 +85,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-555',
         deliverable: "Glazed Alum. Curtain Walls",
         proData: true,
         shopDwg: true,
@@ -88,6 +96,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-666',
         deliverable: "Glazed Alum. Window Walls",
         proData: true,
         shopDwg: true,
@@ -98,6 +107,7 @@ export const ProjectsData = [{
             message: "this is a test"
         }]
     },{
+        id: 'submittals-777',
         deliverable: "Glass Glazing",
         proData: true,
         shopDwg: true,
@@ -109,6 +119,7 @@ export const ProjectsData = [{
         }]
     }],
     material: [{
+        id: 'material-111',
         deliverable: "Window Walls",
         order: true,
         inProdtn: true,
@@ -123,6 +134,7 @@ export const ProjectsData = [{
         }]
     }],
     installation: [{
+        id: 'installation-111',
         deliverable: "Window Walls",
         comopleted: 95,
         ready: true,
