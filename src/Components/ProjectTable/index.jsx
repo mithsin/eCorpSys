@@ -2,6 +2,7 @@ import React from 'react';
 import { capitalString, tableFormatter } from 'utils/util';
 import './styles.scss';
 
+// const filterOutId = (filterList) => filterList.filter(item => item?.id);
 const ProjectTable = ({title, list}) => {
     const allKeys = Object.keys(list[0]);
     return(
