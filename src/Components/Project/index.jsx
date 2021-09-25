@@ -5,6 +5,9 @@ import { projectsState } from 'States/projectSlice';
 import ProjectHeader from 'Components/ProjectHeader';
 import ProjectTable from 'Components/ProjectTable';
 import ProjectTableEdit from 'Components/ProjectTableEdit';
+
+import SubmittalsTable from 'Components/SubmittalsTable';
+import SubmittlesEdit from 'Components/SubmittlesEdit';
 import './styles.scss';
 
 
@@ -25,8 +28,8 @@ const Project = () => {
             <ProjectHeader {...project}/>
             <button onClick={()=>setEdit(!edit)}>Edit</button>
             {project?.submittals && !edit 
-                ? <ProjectTable title="SUBMITTALS" list={project?.submittals}/> 
-                : <ProjectTableEdit title="SUBMITTALS" list={project?.submittals}/>}
+                ? <SubmittalsTable title="SUBMITTALS" list={project?.submittals}/> 
+                : <SubmittlesEdit title="SUBMITTALS" list={project?.submittals}/>}
             {project?.material && <ProjectTable title="MATERIAL" list={project?.material}/>}
             {project?.installation && <ProjectTable title="INSTALLATION" list={project?.installation}/>}
         </div>

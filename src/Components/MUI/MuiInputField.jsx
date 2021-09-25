@@ -4,7 +4,7 @@ import { useInputStyles } from './styles';
 // import MomentUtils from '@date-io/moment';
 // import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
-
+import Checkbox from '@mui/material/Checkbox';
 
 const MuiInputField = ({
   props, 
@@ -20,8 +20,7 @@ const MuiInputField = ({
     const classes = useInputStyles(props);
     return (
       <>
-      {(type === "date")
-      ? 
+      {(type === "date") && 
       <DesktopDatePicker
           label={label}
           value={defaultValue}
@@ -29,9 +28,9 @@ const MuiInputField = ({
           minDate={new Date('2017-01-01')}
           onChange={e => onChange({type, name, value: e})}
           renderInput={(params) => <TextField {...params} />}
-        />
+        />}
       
-      :<TextField
+      {(type === "text") && <TextField
         className={classes.inputStyle}
         label={label}
         {...{required: required}}
@@ -44,6 +43,13 @@ const MuiInputField = ({
         // InputProps={{ classes, disableunderline: "true" }} 
         />
     }
+    {(type === 'checkbox') && 
+      <Checkbox
+        name={name}
+        label={label}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+        {...defaultValue && {defaultChecked: true}} />}
     </>
 )};
 

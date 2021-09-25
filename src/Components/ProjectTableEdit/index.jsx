@@ -12,14 +12,7 @@ const ProjectTableEdit = ({title, list=[{}]}) => {
             ...item,
             [e.target.name]: e.target.value
         }
-        // console.log('item-->: ', item)
-        // console.log('formInputs-->: ', formInputs)
-        console.log('newObj-->: ', newObj)
-        // console.log('index-->: ', index)
-        console.log('id->: ', itemId)
-
         const updateList = formInputs.map(list => list.id === itemId ? newObj : list);
-        console.log('updateList--->: ', updateList)
         setFormInputs(updateList)
     };
     const onClickAddProject = () => {
