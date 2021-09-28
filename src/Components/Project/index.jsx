@@ -1,16 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { projectsState } from 'States/projectSlice';
+import { projectsState, getProjectData } from 'States/projectSlice';
 import ProjectHeader from 'Components/ProjectHeader';
 import ProjectTable from 'Components/ProjectTable';
-import ProjectTableEdit from 'Components/ProjectTableEdit';
 
 import SubmittalsTable from 'Components/SubmittalsTable';
 import SubmittlesEdit from 'Components/SubmittlesEdit';
 import './styles.scss';
-
-
 
 const Project = () => {
     const dispatch = useDispatch();
@@ -19,9 +16,10 @@ const Project = () => {
     const [project, setProject] = useState();
     const [edit, setEdit] = useState(false);
     useEffect(()=>{
-        projectDataState ? setProject(projectDataState.find(arr => arr.projectId === projectId)) : setProject('wait')
+        project 
+            ? setProject(projectDataState.find(arr => arr.projectId === projectId)) 
+            : setProject(dispatch(getProjectData(projectId)))
     },[]);
-    console.log(project)
     return(
         <div>
             <h1>{projectId}</h1>
