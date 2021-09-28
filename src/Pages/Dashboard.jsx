@@ -1,14 +1,20 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { projectsState } from 'States/projectSlice';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { projectsState, setProjectsState } from 'States/projectSlice';
 import { useHistory } from 'react-router-dom'
 import './styles.module.scss';
 
 
 
 const Dashboard = () => {
+    const dispatch = useDispatch();
     const projectDataState = useSelector(projectsState);
     const history = useHistory();
+
+    useEffect(()=>{
+        dispatch(setProjectsState())
+    },[])
+
     return(
         <div>
             <h1>Hello</h1>
