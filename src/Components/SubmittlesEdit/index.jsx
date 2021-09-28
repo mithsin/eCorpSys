@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import {MuiButton, MuiInputField} from 'Components/MUI';
+import moment from 'moment';
 import styles from './styles.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
 const SubmittlesEdit = ({title, list=[{}]}) => {
     const [formInputs, setFormInputs] = useState(list);
     const headTitles = [ 'Deliverable', 'Pro Data', 'Shop Dwg', 'Eng', 'Sample', 'Status' ];
+    // || ( e.target.name === 'status' && `${item?.status} \n ${moment().format('L')}: ${e.target.value}`)
     const formInputChange = (e, item) => {
         const newObj = {
             ...item,
@@ -14,7 +16,7 @@ const SubmittlesEdit = ({title, list=[{}]}) => {
         const updateList = formInputs.map(list => list.id === item.id ? newObj : list);
         setFormInputs(updateList)
     };
-    const onClickAddProject = () => {
+    const onClickUpdateProject = () => {
         console.log('formInputs->: ', formInputs)
     };
     const onClickAddLine = () => {
@@ -33,18 +35,6 @@ const SubmittlesEdit = ({title, list=[{}]}) => {
     return(
         <div className="ProjectTableWrapper">
             <h2>{title}</h2>
-            <div>
-                <MuiButton 
-                    bgColor="#fff"
-                    labelColor="#000"
-                    label="SUBMIT"
-                    onClick={ onClickAddProject }/>
-                <MuiButton 
-                    bgColor="green"
-                    labelColor="#000"
-                    label="add"
-                    onClick={ onClickAddLine }/>
-            </div>
             <table>
                 <thead>
                     <tr>
@@ -115,6 +105,20 @@ const SubmittlesEdit = ({title, list=[{}]}) => {
                     )}
                 </tbody>
             </table>
+            <div className={styles.FlexWrap}>
+                <div className={styles.ButtonsWrap}>
+                    <MuiButton 
+                        bgColor="#00FF00"
+                        labelColor="#000"
+                        label="SUBMIT"
+                        onClick={ onClickUpdateProject }/>
+                    <MuiButton 
+                        bgColor="#ADD8E6"
+                        labelColor="#000"
+                        label="add"
+                        onClick={ onClickAddLine }/>
+                </div>
+            </div>
         </div>
     );
 };
