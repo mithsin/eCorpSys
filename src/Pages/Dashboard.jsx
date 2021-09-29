@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { projectsState, setProjectsState } from 'States/projectSlice';
+import { projectsState, getProjectsState } from 'States/projectSlice';
 import { useHistory } from 'react-router-dom'
 import './styles.module.scss';
-
-
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -12,7 +10,7 @@ const Dashboard = () => {
     const history = useHistory();
 
     useEffect(()=>{
-        dispatch(setProjectsState())
+       dispatch(getProjectsState())
     },[])
 
     return(

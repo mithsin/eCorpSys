@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
+import {MuiButton, MuiInputField} from 'Components/MUI';
 import { projectsState, getProjectData } from 'States/projectSlice';
 import ProjectHeader from 'Components/ProjectHeader';
 import ProjectTable from 'Components/ProjectTable';
@@ -16,7 +17,7 @@ const Project = () => {
     const [project, setProject] = useState();
     const [edit, setEdit] = useState(false);
     useEffect(()=>{
-        project 
+        projectDataState 
             ? setProject(projectDataState.find(arr => arr.projectId === projectId)) 
             : setProject(dispatch(getProjectData(projectId)))
     },[]);

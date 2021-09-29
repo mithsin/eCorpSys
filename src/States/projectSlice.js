@@ -9,7 +9,7 @@ export const projectSlice = createSlice({
     },
     reducers: {
         setProjectsState: (state, action) => {
-            return {...state, ...action.payload}
+            return {...state, projects: [...action.payload]}
         },
         setProjectState: (state, action) => {
             return {...state, ...action.payload}
@@ -22,8 +22,8 @@ export const {
     setProjectState
 } = projectSlice.actions;
 
-export const getProjectsData = ( ) => dispatch => {
-    console.log('getProjectsData')
+export const getProjectsState = ( ) => dispatch => {
+    console.log('getProjectsState')
     axios.get(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/projects`)
     .then(res => {
         console.log('res-->: ', res.data);
