@@ -68,7 +68,7 @@ const SubmittalsEdit = ({setProject, project, title, list=[{}]}) => {
         name: 'status',
         label: 'status'
     }]
-
+    
     return(
         <div className="ProjectTableWrapper">
             <h2>{title}</h2>
@@ -81,11 +81,16 @@ const SubmittalsEdit = ({setProject, project, title, list=[{}]}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {formInputs?.map((item, index)=>
-                        <tr key={`SubmittalsEdit-list-${index}`} className={styles.tbodyTr}>
+                    { console.log('formInputs-->: ', formInputs) }
+                    {formInputs?.map((item, index)=> {
+
+                        console.log('item--->: ', item)
+                        return <tr key={`SubmittalsEdit-list-${index}`} className={styles.tbodyTr}>
                             {
-                                inputField.map((inputList, index) => 
-                                        <td key={`SubmittalsEdit-input-${index}`}>
+                                inputField.map((inputList, index) => {
+                                    return inputList.name === "status"
+                                        ? <button>View</button>
+                                        : <td key={`SubmittalsEdit-input-${index}`}>
                                             <MuiInputField
                                                 bgColor="#fff"
                                                 type={inputList.type}
@@ -94,13 +99,13 @@ const SubmittalsEdit = ({setProject, project, title, list=[{}]}) => {
                                                 label={inputList.label}
                                                 onChange={(e)=> formInputChange(e, item) }/>
                                         </td>
-                                )
+                                })
                             }
-                            <td>
+                            {/* <td>
                                 <RemoveCircle sx={{ color: "red" }} onClick={()=>onClickRemoveLine(item.id)}/>
-                            </td>
+                            </td> */}
                         </tr>
-                    )}
+                    })}
                 </tbody>
             </table>
             <div className={styles.FlexWrap}>

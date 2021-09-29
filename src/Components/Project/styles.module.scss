@@ -1,3 +1,11 @@
+.ButtonWrapper {
+    display: flex;
+    justify-content: center;
+    div {
+        margin: .5rem;
+    }
+}
+
 .EditWrapper {
     color: green;
     font-size: 2rem;

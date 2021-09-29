@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { Edit } from '@mui/icons-material';
-import { projectsState, getProjectData } from 'States/projectSlice';
+import { Edit, Backup } from '@mui/icons-material';
+import { projectsState, getProjectData, updateProjectData } from 'States/projectSlice';
 import ProjectHeader from 'Components/ProjectHeader';
 import SubmittalsTable from 'Components/SubmittalsTable';
 import SubmittalsEdit from 'Components/SubmittalsEdit';
@@ -23,15 +23,26 @@ const Project = () => {
             ? setProject(projectDataState.find(arr => arr.projectId === projectId)) 
             : setProject(dispatch(getProjectData(projectId)))
     },[projectDataState]);
+    const onClickUpdateProject = () => {
+        dispatch(updateProjectData(project))
+    }
     return(
         <div>
             <h1>{projectId}</h1>
             <ProjectHeader {...project}/>
-            <div
-                className={styles.EditWrapper}
-                onClick={ ()=>setEdit(!edit) }>
-                    Edit
-                <Edit color="success"/>
+            <div className={styles.ButtonWrapper}>
+                <div
+                    className={styles.EditWrapper}
+                    onClick={ ()=>setEdit(!edit) }>
+                        Edit
+                    <Edit color="success"/>
+                </div>
+                <div
+                    className={styles.EditWrapper}
+                    onClick={ onClickUpdateProject }>
+                        Save
+                    <Backup color="success"/>
+                </div>
             </div>
             {project?.submittals && !edit 
                 ? <SubmittalsTable title="SUBMITTALS" setProject={setProject} project={project} list={project?.submittals}/> 

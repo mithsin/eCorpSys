@@ -97,9 +97,9 @@ const InstallationEdit = ({setProject, project, title, list=[{}]}) => {
                                     );
                                 })
                             }
-                            <td>
+                            {/* <td>
                                 <RemoveCircle sx={{ color: "red" }} onClick={()=>onClickRemoveLine(item.id)}/>
-                            </td>
+                            </td> */}
                         </tr>
                     )}
                 </tbody>

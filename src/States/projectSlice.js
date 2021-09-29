@@ -41,8 +41,9 @@ export const getProjectData = ( projectLink ) => dispatch => {
     .catch(err => console.log(err))
 }
 
-export const updateProjectData = ( update ) => dispatch => {
-    axios.put(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project`, update)
+export const updateProjectData = ( project ) => dispatch => {
+    console.log('project-->: ', {update: project})
+    axios.put(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project`, {update: project})
     .then(res => {
         dispatch(setProjectState(res.data))
         return(res.data)
