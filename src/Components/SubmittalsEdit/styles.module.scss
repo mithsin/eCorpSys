@@ -1,0 +1,34 @@
+.ProjectTableWrapper {
+    margin: 1rem 0;
+    border: 3px dotted gray;
+    h2 {
+        font-style: italic;
+        text-align: left;
+        margin-left: 1rem;
+    }
+}
+table {
+    width: 100%;
+    padding: 1rem;
+    tr {
+        th, td {
+            width: 14%
+        }
+        th:first-child, td:first-child {
+            text-align: left;
+            width: 30%
+        }
+    }
+}
+.FlexWrap {
+    display: flex;
+    justify-content: flex-end;
+    .ButtonsWrap {
+        display: flex;
+        max-width: 300px;
+        width: 100%;
+        button {
+            margin-left: 1rem;
+        }
+    }
+}

@@ -5,14 +5,14 @@ import axios from 'axios';
 export const projectSlice = createSlice({
     name: 'projectState',
     initialState: {
-        projects: [{}]
+        projects: []
     },
     reducers: {
         setProjectsState: (state, action) => {
             return {...state, projects: [...action.payload]}
         },
         setProjectState: (state, action) => {
-            return {...state, ...action.payload}
+            return {...state, projects: [action.payload]}
         }
     },
 });
@@ -23,17 +23,35 @@ export const {
 } = projectSlice.actions;
 
 export const getProjectsState = ( ) => dispatch => {
-    console.log('getProjectsState')
     axios.get(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/projects`)
     .then(res => {
-        console.log('res-->: ', res.data);
         dispatch(setProjectsState(res.data))
     })
     .catch(err => console.log(err))
 }
 
 export const getProjectData = ( projectLink ) => dispatch => {
-    axios.get(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project??projectId=${projectLink}`)
+    console.log('trigger getProjectData dispatch and projectlink: ', projectLink)
+    
+    axios.get(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project?projectId=${projectLink}`)
+    .then(res => {
+        dispatch(setProjectState(res.data))
+        return(res.data);
+    })
+    .catch(err => console.log(err))
+}
+
+export const updateProjectData = ( update ) => dispatch => {
+    axios.put(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project`, update)
+    .then(res => {
+        dispatch(setProjectState(res.data))
+        return(res.data)
+    })
+    .catch(err => console.log(err))
+}
+
+export const createNewProject = ( newProject ) => dispatch => {
+    axios.put(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project`, newProject)
     .then(res => 
         dispatch(setProjectState(res.data))
     )

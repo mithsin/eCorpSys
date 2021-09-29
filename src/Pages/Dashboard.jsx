@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { projectsState, getProjectsState } from 'States/projectSlice';
 import { useHistory } from 'react-router-dom'
-import './styles.module.scss';
+import styles from './styles.module.scss';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const Dashboard = () => {
            {
                projectDataState.map(project =>
                 <div 
+                    className={styles.ProjectWrapper}
                     onClick={()=> 
                         (history.push(`/${project.projectId}`))
                 }>{project.projetTitle}</div>)
