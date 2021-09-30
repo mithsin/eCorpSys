@@ -9,10 +9,6 @@ import MaterialTable from 'Components/MaterialTable';
 import InstallationTable from 'Components/InstallationTable';
 import { submittalsSetting, materialSetting, installationSetting } from './formatSetting';
 
-import SubmittalsEdit from 'Components/SubmittalsEdit';
-import MaterialEdit from 'Components/MaterialEdit';
-import InstallationEdit from 'Components/InstallationEdit';
-
 import ProjectTableEdit from 'Components/ProjectTableEdit';
 
 import styles from './styles.module.scss';
@@ -53,8 +49,9 @@ const Project = () => {
                 </div>
             </div>
             {project?.submittals && !edit 
-                ? <SubmittalsTable title="SUBMITTALS" setProject={setProject} project={project} list={project?.submittals}/> 
+                ? <SubmittalsTable edit={edit} title="SUBMITTALS" setProject={setProject} project={project} list={project?.submittals}/> 
                 : <ProjectTableEdit 
+                    edit={edit}
                     title="SUBMITTALS" 
                     setProject={setProject}
                     newObjLine={submittalsSetting.newObjLine}
@@ -64,8 +61,9 @@ const Project = () => {
                     project={project} 
                     list={project?.submittals}/>}
             {project?.material && !edit 
-                ? <MaterialTable title="MATERIAL" setProject={setProject} project={project} list={project?.material}/> 
+                ? <MaterialTable edit={edit} title="MATERIAL" setProject={setProject} project={project} list={project?.material}/> 
                 : <ProjectTableEdit
+                    edit={edit}
                     title="MATERIAL"
                     setProject={setProject}
                     newObjLine={materialSetting.newObjLine}
@@ -75,8 +73,9 @@ const Project = () => {
                     project={project}
                     list={project?.material}/>}
             {project?.installation && !edit 
-                ? <InstallationTable title="INSTALLATION" setProject={setProject} project={project} list={project?.installation}/> 
+                ? <InstallationTable edit={edit} title="INSTALLATION" setProject={setProject} project={project} list={project?.installation}/> 
                 : <ProjectTableEdit
+                    edit={edit}
                     title="INSTALLATION"
                     setProject={setProject}
                     newObjLine={installationSetting.newObjLine}

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import {MuiButton, MuiInputField} from 'Components/MUI';
+import { HighlightOff } from '@mui/icons-material';
 import moment from 'moment';
 import styles from './styles.module.scss';
 
-const PopupMessage = ({newKey, viewItem, setShowMessage, formInputChange}) => {
+const PopupMessage = ({edit=false, newKey, viewItem, setShowMessage, formInputChange}) => {
     const [inputChange, setInputChange] = useState('');
     const [statusMessage, setStatusMessage] = useState(viewItem?.status)
     const onClickSubmit = () => {
@@ -17,27 +18,32 @@ const PopupMessage = ({newKey, viewItem, setShowMessage, formInputChange}) => {
         <div className={styles.OuterWrap}>
             <div className={styles.InnerPosition}>
                 <div className={styles.MessageBraket}>
-                    <div className={styles.MessageBox}>{statusMessage.split('\n').map((ele, index)=> <p className={styles.StatusMessage} key={`message-text-${index}`}>{ele}</p>)}</div>
-                    <div className={styles.InputBox}>
-                        <MuiInputField
+                    <div className={styles.CloseBox}><span onClick={onClickCancel}><HighlightOff /></span></div>
+                    <div className={styles.MessageBox}>
+                        {statusMessage.split('\n').map((ele, index)=> <p className={styles.StatusMessage} key={`message-text-${index}`}>{ele}</p>)}
+                    </div>
+                    {edit && <>
+                        <div className={styles.InputBox}>
+                            <MuiInputField
+                                bgColor="#fff"
+                                type='text'
+                                name='status'
+                                label='status'
+                                onChange={(e)=> setInputChange(e.target.value)}/>
+                        </div>
+                        <div className={styles.ButtonWrap}>
+                        <MuiButton 
                             bgColor="#fff"
-                            type='text'
-                            name='status'
-                            label='status'
-                            onChange={(e)=> setInputChange(e.target.value)}/>
-                    </div>
-                    <div className={styles.ButtonWrap}>
-                    <MuiButton 
-                        bgColor="#fff"
-                        labelColor="#000"
-                        label="SUBMIT"
-                        onClick={ onClickSubmit }/>
-                    <MuiButton 
-                        bgColor="#fff"
-                        labelColor="#000"
-                        label="Cancel"
-                        onClick={ onClickCancel }/>
-                    </div>
+                            labelColor="#000"
+                            label="SUBMIT"
+                            onClick={ onClickSubmit }/>
+                        <MuiButton 
+                            bgColor="#fff"
+                            labelColor="#000"
+                            label="Cancel"
+                            onClick={ onClickCancel }/>
+                        </div>
+                    </>}
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@ import { AddCircle, RemoveCircle } from '@mui/icons-material';
 import PopupMessage from 'Components/PopupMessage';
 import styles from './styles.module.scss';
 
-const ProjectTableEdit = ({setProject, project, newObjLine, inputField, newKey, headTitles, title, list=[{}]}) => {
+const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, newKey, headTitles, title, list=[{}]}) => {
     const [formInputs, setFormInputs] = useState();
     const [showMessage, setShowMessage] = useState(false);
     const [viewItem, setViewItem] = useState();
@@ -35,8 +35,10 @@ const ProjectTableEdit = ({setProject, project, newObjLine, inputField, newKey, 
 
     return(
         <div className="ProjectTableWrapper">
+            
             {showMessage
              ? <PopupMessage 
+                edit={edit}
                 newKey={newKey}
                 setShowMessage={setShowMessage}
                 formInputChange={formInputChange}
