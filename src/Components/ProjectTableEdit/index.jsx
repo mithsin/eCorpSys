@@ -1,60 +1,94 @@
-import React, { useState } from 'react';
-import { capitalString, tableFormatter } from 'utils/util';
+import React, { useState, useEffect } from 'react';
 import {MuiButton, MuiInputField} from 'Components/MUI';
-import './styles.scss';
+import { AddCircle, RemoveCircle } from '@mui/icons-material';
+import PopupMessage from 'Components/PopupMessage';
+import styles from './styles.module.scss';
 
-const ProjectTableEdit = ({title, list=[{}]}) => {
-    const allKeys = Object.keys(list[0]);
-    const [formInputs, setFormInputs] = useState(list);
+const ProjectTableEdit = ({setProject, project, newObjLine, inputField, newKey, headTitles, title, list=[{}]}) => {
+    const [formInputs, setFormInputs] = useState();
+    const [showMessage, setShowMessage] = useState(false);
+    const [viewItem, setViewItem] = useState();
 
-    const formInputChange = (e, item, itemId) => {
+    useEffect(()=>{
+        if(formInputs){
+            setProject({
+                ...project,
+                [newKey]: formInputs
+            })
+        }
+    },[formInputs])
+    const formInputChange = (e, item) => {
         const newObj = {
             ...item,
-            [e.target.name]: e.target.value
+            [e.target.name]: (e.target.type === 'checkbox' && e.target.checked) || e.target.value
         }
-        const updateList = formInputs.map(list => list.id === itemId ? newObj : list);
+        const updateList = list.map(list => list.id === item.id ? newObj : list);
         setFormInputs(updateList)
     };
-    const onClickAddProject = () => {
-        console.log('formInputs->: ', formInputs)
-    };
+
+    const onClickAddLine = () => {
+        setFormInputs(formInputs.concat(newObjLine))
+    }
+    const onClickRemoveLine = (id) => {
+        setFormInputs(formInputs.filter(item => item.id !== id))
+    }
+
     return(
         <div className="ProjectTableWrapper">
-            <h2>{title}</h2>
-            <MuiButton 
-                bgColor="#fff"
-                labelColor="#000"
-                label="SUBMIT"
-                onClick={ onClickAddProject }/>
-            <table>
-                <thead>
-                    <tr>
-                        {allKeys?.map((title, index)=>
-                            title !== "id" && <th key={`title-${index}`}><b>{capitalString(title)}</b></th>
-                        )}
-                    </tr>
-                </thead>
-                <tbody>
-                    {list?.map((item, index)=>{
-                        const itemList = Object.entries(item);
-                        return <tr key={`list-${index}`} className="tbodyTr">
-                            {(itemList.filter(item=> item[0] !== "id")).map((val, idx) => {
-                                const newVal = tableFormatter(val);
-                                return <td key={`val-${idx}`}>
-                                    <MuiInputField
-                                            key={`${index}-inputsetting`}
-                                            bgColor="#fff"
-                                            type='text'
-                                            defaultValue={val[1]}
-                                            name={val[0]}
-                                            label={val[0]}
-                                            onChange={(e)=> formInputChange(e, item, itemList.find(item => item[0] === "id")[1]) }/>
-                                </td>
-                            })}
-                        </tr>
-                    })}
-                </tbody>
-            </table>
+            {showMessage
+             ? <PopupMessage 
+                newKey={newKey}
+                setShowMessage={setShowMessage}
+                formInputChange={formInputChange}
+                viewItem={viewItem}/>
+             : <>
+             <h2>{title}</h2>
+             <table>
+                 <thead>
+                     <tr>
+                         {headTitles?.map((title, index)=>
+                             <th key={`title-${index}`}><b>{title}</b></th>
+                         )}
+                     </tr>
+                 </thead>
+                 <tbody>
+                     {list?.map((item, index)=> {
+                         return <tr key={`${newKey}Edit-list-${index}`} className={styles.tbodyTr}>
+                             {
+                                 inputField.map((inputList, index) => {
+                                     return inputList.name === "status"
+                                         ? <td key={`${newKey}Edit-input-${index}`}>
+                                             {item?.status && item?.status.split('\n')[0]}
+                                             <br />
+                                             <button onClick={()=>{
+                                                 setShowMessage(!showMessage)
+                                                 setViewItem(item)
+                                                 }}>View</button>
+                                           </td>
+                                         : <td key={`${newKey}Edit-input-${index}`}>
+                                             <MuiInputField
+                                                 bgColor="#fff"
+                                                 type={inputList.type}
+                                                 defaultValue={item?.[inputList.defaultValue]}
+                                                 name={inputList.name}
+                                                 label={inputList.label}
+                                                 onChange={(e)=> formInputChange(e, item) }/>
+                                         </td>
+                                 })
+                             }
+                             {/* <td>
+                                 <RemoveCircle sx={{ color: "red" }} onClick={()=>onClickRemoveLine(item.id)}/>
+                             </td> */}
+                         </tr>
+                     })}
+                 </tbody>
+             </table>
+             <div className={styles.FlexWrap}>
+                     <AddCircle color="success" onClick={onClickAddLine}/>
+             </div>
+             </>
+            }
+            
         </div>
     );
 };

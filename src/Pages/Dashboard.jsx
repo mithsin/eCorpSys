@@ -17,8 +17,9 @@ const Dashboard = () => {
         <div>
             <h1>Hello</h1>
            {
-               projectDataState.map(project =>
+               projectDataState.map((project, index) =>
                 <div 
+                    key={`project-item-${index}`}
                     className={styles.ProjectWrapper}
                     onClick={()=> 
                         (history.push(`/${project.projectId}`))

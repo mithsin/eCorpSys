@@ -2,7 +2,6 @@ import React from "react";
 import './styles.scss';
 
 const ProjectHeader = (props) => {
-    // console.log('prop: ', props)
     const {
         projetTitle,
         constructionManager,

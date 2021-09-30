@@ -1,0 +1,42 @@
+.OuterWrap {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.InnerPosition {
+    max-width: 450px;
+    width: 100%;
+    min-width: 300px;
+    height: 500px;
+}
+.MessageBraket {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+}
+.MessageBox {
+    height: 60%;
+    border: 1px solid;
+    margin: 1rem;
+    overflow-y: scroll;
+}
+.StatusMessage {
+    margin: 0 0 .5rem 0;
+}
+.InputBox {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+.ButtonWrap {
+    display: flex;
+    justify-content: flex-end;
+}

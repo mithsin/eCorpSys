@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 const SubmittalsEdit = ({setProject, project, title, list=[{}]}) => {
     const [formInputs, setFormInputs] = useState(list);
     const headTitles = [ 'Deliverable', 'Pro Data', 'Shop Dwg', 'Eng', 'Sample', 'Status' ];
+    const [showMessage, setShowMessage] = useState(false)
     useEffect(()=>{
         setProject({
             ...project,
@@ -28,6 +29,7 @@ const SubmittalsEdit = ({setProject, project, title, list=[{}]}) => {
     const onClickRemoveLine = (id) => {
         setFormInputs(formInputs.filter(item => item.id !== id))
     }
+    const onClickToView = () => {}
     const newObjLine = {
         id: `submittles-${uuidv4()}`,
         deliverable: "",
@@ -68,7 +70,6 @@ const SubmittalsEdit = ({setProject, project, title, list=[{}]}) => {
         name: 'status',
         label: 'status'
     }]
-    
     return(
         <div className="ProjectTableWrapper">
             <h2>{title}</h2>
@@ -81,15 +82,12 @@ const SubmittalsEdit = ({setProject, project, title, list=[{}]}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    { console.log('formInputs-->: ', formInputs) }
                     {formInputs?.map((item, index)=> {
-
-                        console.log('item--->: ', item)
                         return <tr key={`SubmittalsEdit-list-${index}`} className={styles.tbodyTr}>
                             {
                                 inputField.map((inputList, index) => {
                                     return inputList.name === "status"
-                                        ? <button>View</button>
+                                        ? <td key={`SubmittalsEdit-input-${index}`}>{item?.status && item?.status.split('\n')[item?.status.split('\n').length - 1]}<br /><button onClick={()=>setShowMessage(!showMessage)}>View</button></td>
                                         : <td key={`SubmittalsEdit-input-${index}`}>
                                             <MuiInputField
                                                 bgColor="#fff"

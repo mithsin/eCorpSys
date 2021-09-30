@@ -5,11 +5,16 @@ import { Edit, Backup } from '@mui/icons-material';
 import { projectsState, getProjectData, updateProjectData } from 'States/projectSlice';
 import ProjectHeader from 'Components/ProjectHeader';
 import SubmittalsTable from 'Components/SubmittalsTable';
-import SubmittalsEdit from 'Components/SubmittalsEdit';
 import MaterialTable from 'Components/MaterialTable';
-import MaterialEdit from 'Components/MaterialEdit';
 import InstallationTable from 'Components/InstallationTable';
+import { submittalsSetting, materialSetting, installationSetting } from './formatSetting';
+
+import SubmittalsEdit from 'Components/SubmittalsEdit';
+import MaterialEdit from 'Components/MaterialEdit';
 import InstallationEdit from 'Components/InstallationEdit';
+
+import ProjectTableEdit from 'Components/ProjectTableEdit';
+
 import styles from './styles.module.scss';
 
 const Project = () => {
@@ -19,10 +24,13 @@ const Project = () => {
     const [project, setProject] = useState();
     const [edit, setEdit] = useState(false);
     useEffect(()=>{
-        (projectDataState && projectDataState.length > 0)
-            ? setProject(projectDataState.find(arr => arr.projectId === projectId)) 
-            : setProject(dispatch(getProjectData(projectId)))
+        if(!project){
+            (projectDataState && projectDataState.length > 0)
+                ? setProject(projectDataState.find(arr => arr.projectId === projectId)) 
+                : setProject(dispatch(getProjectData(projectId)))
+        }
     },[projectDataState]);
+ 
     const onClickUpdateProject = () => {
         dispatch(updateProjectData(project))
     }
@@ -46,13 +54,37 @@ const Project = () => {
             </div>
             {project?.submittals && !edit 
                 ? <SubmittalsTable title="SUBMITTALS" setProject={setProject} project={project} list={project?.submittals}/> 
-                : <SubmittalsEdit title="SUBMITTALS" setProject={setProject} project={project} list={project?.submittals}/>}
+                : <ProjectTableEdit 
+                    title="SUBMITTALS" 
+                    setProject={setProject}
+                    newObjLine={submittalsSetting.newObjLine}
+                    inputField={submittalsSetting.inputField}
+                    headTitles={submittalsSetting.headTitles}
+                    newKey='submittals'
+                    project={project} 
+                    list={project?.submittals}/>}
             {project?.material && !edit 
                 ? <MaterialTable title="MATERIAL" setProject={setProject} project={project} list={project?.material}/> 
-                : <MaterialEdit title="MATERIAL" setProject={setProject} project={project} list={project?.material}/>}
+                : <ProjectTableEdit
+                    title="MATERIAL"
+                    setProject={setProject}
+                    newObjLine={materialSetting.newObjLine}
+                    inputField={materialSetting.inputField}
+                    headTitles={materialSetting.headTitles}
+                    newKey='material'
+                    project={project}
+                    list={project?.material}/>}
             {project?.installation && !edit 
                 ? <InstallationTable title="INSTALLATION" setProject={setProject} project={project} list={project?.installation}/> 
-                : <InstallationEdit title="INSTALLATION" setProject={setProject} project={project} list={project?.installation}/>}
+                : <ProjectTableEdit
+                    title="INSTALLATION"
+                    setProject={setProject}
+                    newObjLine={installationSetting.newObjLine}
+                    inputField={installationSetting.inputField}
+                    headTitles={installationSetting.headTitles}
+                    newKey='installation'
+                    project={project}
+                    list={project?.installation}/>}
         </div>
     );
 };

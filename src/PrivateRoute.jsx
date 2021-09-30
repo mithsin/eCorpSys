@@ -7,7 +7,6 @@ import {
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const userSignIn = useSelector(isSignIn);
-  // console.log("userSignIn: ", userSignIn)
   return (
     <Route {...rest} render={(props) => (
       userSignIn === true
