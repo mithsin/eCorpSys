@@ -12,7 +12,8 @@ const MuiInputField = ({
   required,
   type,
   name, 
-  label, 
+  label,
+  helperText,
   onChange,
   onKeyPress
 }) => {
@@ -37,7 +38,8 @@ const MuiInputField = ({
         type={type? type : 'text'}
         name={name}
         variant="outlined"
-        onChange={onChange}
+        helperText={helperText}
+        { ...{helperText: helperText}}
         { ...defaultValue && {defaultValue: defaultValue}}
         { ...onKeyPress && {onKeyPress: onKeyPress}}
         // InputProps={{ classes, disableunderline: "true" }} 

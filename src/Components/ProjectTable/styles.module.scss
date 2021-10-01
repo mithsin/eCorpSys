@@ -20,18 +20,6 @@ table {
         }
     }
 }
-.FlexWrap {
-    display: flex;
-    justify-content: flex-end;
-    .ButtonsWrap {
-        display: flex;
-        max-width: 300px;
-        width: 100%;
-        button {
-            margin-left: 1rem;
-        }
-    }
-}
 
 .MobileWrapper {
     border: 1px solid;
@@ -46,12 +34,6 @@ table {
     .MobileCheck{
         padding-bottom: .25rem;
         border-bottom: 1px dotted;
-        display: flex;
-        justify-content: space-around;
-        .MobileCheckSingle {
-            display: flex;
-            flex-direction: column;
-        }
         .MobileCheckState {
             display: inline-flex;
         }

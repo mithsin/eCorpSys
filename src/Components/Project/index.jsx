@@ -9,6 +9,7 @@ import MaterialTable from 'Components/MaterialTable';
 import InstallationTable from 'Components/InstallationTable';
 import { submittalsSetting, materialSetting, installationSetting } from './formatSetting';
 
+import ProjectTable from 'Components/ProjectTable';
 import ProjectTableEdit from 'Components/ProjectTableEdit';
 
 import styles from './styles.module.scss';
@@ -49,7 +50,11 @@ const Project = () => {
                 </div>
             </div>
             {project?.submittals && !edit 
-                ? <SubmittalsTable edit={edit} title="SUBMITTALS" setProject={setProject} project={project} list={project?.submittals}/> 
+                ? <ProjectTable 
+                    newKey='submittals'
+                    headTitles={submittalsSetting.headTitles}
+                    title="SUBMITTALS" 
+                    list={project?.submittals}/> 
                 : <ProjectTableEdit 
                     edit={edit}
                     title="SUBMITTALS" 
@@ -61,28 +66,36 @@ const Project = () => {
                     project={project} 
                     list={project?.submittals}/>}
             {project?.material && !edit 
-                ? <MaterialTable edit={edit} title="MATERIAL" setProject={setProject} project={project} list={project?.material}/> 
+                ? <ProjectTable 
+                    newKey='material'
+                    headTitles={materialSetting.headTitles}
+                    title="MATERIAL"
+                    list={project?.material}/> 
                 : <ProjectTableEdit
                     edit={edit}
-                    title="MATERIAL"
                     setProject={setProject}
+                    project={project}
                     newObjLine={materialSetting.newObjLine}
                     inputField={materialSetting.inputField}
-                    headTitles={materialSetting.headTitles}
                     newKey='material'
-                    project={project}
+                    headTitles={materialSetting.headTitles}
+                    title="MATERIAL"
                     list={project?.material}/>}
             {project?.installation && !edit 
-                ? <InstallationTable edit={edit} title="INSTALLATION" setProject={setProject} project={project} list={project?.installation}/> 
+                ? <ProjectTable 
+                    newKey='installation'
+                    headTitles={installationSetting.headTitles}
+                    title="INSTALLATION"
+                    list={project?.installation}/> 
                 : <ProjectTableEdit
                     edit={edit}
-                    title="INSTALLATION"
                     setProject={setProject}
+                    project={project}
                     newObjLine={installationSetting.newObjLine}
                     inputField={installationSetting.inputField}
-                    headTitles={installationSetting.headTitles}
                     newKey='installation'
-                    project={project}
+                    headTitles={installationSetting.headTitles}
+                    title="INSTALLATION"
                     list={project?.installation}/>}
         </div>
     );
