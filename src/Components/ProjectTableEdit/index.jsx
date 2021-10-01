@@ -20,7 +20,7 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
         }
     },[formInputs])
     const formInputChange = (e, item) => {
-        console.log('e.target-->: ', e.target)
+        console.log('e.target-->: ', e)
         console.log('e.target.type-->: ', e.target.type)
         console.log('e-check-type === checkbox -->: ', e.target.type === 'checkbox' )
         console.log('e.target.checked-->: ', e.target.checked)

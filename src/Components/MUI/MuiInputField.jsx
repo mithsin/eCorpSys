@@ -39,6 +39,7 @@ const MuiInputField = ({
         name={name}
         variant="outlined"
         helperText={helperText}
+        onChange={onChange}
         { ...{helperText: helperText}}
         { ...defaultValue && {defaultValue: defaultValue}}
         { ...onKeyPress && {onKeyPress: onKeyPress}}
