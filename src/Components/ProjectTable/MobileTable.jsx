@@ -7,7 +7,6 @@ const MobileTable = ({setShowMessage, showMessage, setViewItem, item}) => {
         <div className={styles.MobileWrapper}>
 
             <div className={styles.MobileDeliverable}>
-                <span className={styles.MobileSubTitle}>deliverable:</span>
                 <span>{item?.deliverable}</span>
             </div>
             <div className={styles.MobileCheck}>

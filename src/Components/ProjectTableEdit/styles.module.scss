@@ -23,6 +23,9 @@ table {
 .FlexWrap {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    padding: 0 1rem;
+    cursor: pointer;
     .ButtonsWrap {
         display: flex;
         max-width: 300px;
@@ -51,9 +54,6 @@ table {
         .MobileCheckSingle {
             display: flex;
             flex-direction: column;
-        }
-        .MobileCheckState {
-            display: inline-flex;
         }
     }
     .MobileStatus{

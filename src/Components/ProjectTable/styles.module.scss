@@ -34,9 +34,11 @@ table {
     .MobileCheck{
         padding-bottom: .25rem;
         border-bottom: 1px dotted;
-        .MobileCheckState {
-            display: inline-flex;
-        }
+        display: flex;
+        justify-content: space-around;
+        // .MobileCheckState {
+        //     display: inline-flex;
+        // }
     }
     .MobileStatus{
         display: flex;

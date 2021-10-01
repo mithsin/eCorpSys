@@ -20,16 +20,21 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
         }
     },[formInputs])
     const formInputChange = (e, item) => {
+        console.log('e.target-->: ', e.target)
+        console.log('e.target.type-->: ', e.target.type)
+        console.log('e-check-type === checkbox -->: ', e.target.type === 'checkbox' )
+        console.log('e.target.checked-->: ', e.target.checked)
         const newObj = {
             ...item,
             [e.target.name]: (e.target.type === 'checkbox' && e.target.checked) || e.target.value
         }
         const updateList = list.map(list => list.id === item.id ? newObj : list);
+        console.log('updateList--->: ', updateList)
         setFormInputs(updateList)
     };
 
     const onClickAddLine = () => {
-        setFormInputs(formInputs.concat(newObjLine))
+        setFormInputs(list.concat(newObjLine))
     }
     const onClickRemoveLine = (id) => {
         setFormInputs(formInputs.filter(item => item.id !== id))
@@ -37,7 +42,7 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
 
     return(
         <div className="ProjectTableWrapper">
-            
+
             {showMessage
              ? <PopupMessage 
                 edit={edit}
@@ -102,12 +107,12 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
                         })}
                     </tbody>
                 </table>
-                <div className={styles.FlexWrap}>
-                        <AddCircle color="success" onClick={onClickAddLine}/>
-                </div>
                 </>
             }
-            
+            <div className={styles.FlexWrap} onClick={onClickAddLine}>
+                <p>Add new row</p>
+                <AddCircle color="success" />
+            </div>
         </div>
     );
 };

@@ -3,14 +3,11 @@ import {MuiButton, MuiInputField} from 'Components/MUI';
 import styles from './styles.module.scss';
 
 const MobileTableEdit = ({inputField, formInputChange, setShowMessage, showMessage, setViewItem, item}) => {
-    console.log('inputField-->: ', inputField)
-    console.log('item-->: ', item)
     const deliverableInput = inputField.find(inputList => inputList.name === "deliverable");
     return(
         <div className={styles.MobileWrapper}>
 
             <div className={styles.MobileDeliverable}>
-                <span className={styles.MobileSubTitle}>deliverable:</span>
                 <span>{
                    deliverableInput && <MuiInputField
                         bgColor="#fff"

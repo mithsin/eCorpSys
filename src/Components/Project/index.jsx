@@ -29,6 +29,7 @@ const Project = () => {
     },[projectDataState]);
  
     const onClickUpdateProject = () => {
+        console.log('project-->: ', project)
         dispatch(updateProjectData(project))
     }
     return(
