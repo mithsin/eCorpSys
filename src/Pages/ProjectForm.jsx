@@ -43,8 +43,11 @@ const ProjectForm = () => {
                 }
             </div>
             <MuiButton 
-                bgColor="#fff"
-                labelColor="#000"
+                props={{
+                    bgColor: "#4bb543",
+                    hbgColor: "#90ee90",
+                    labelColor: "#000",
+                }}
                 label="CREATE PROJECT"
                 onClick={ onClickAddProject }/>
         </div>

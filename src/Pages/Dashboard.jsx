@@ -25,6 +25,7 @@ const Dashboard = () => {
                         (history.push(`/${project.projectId}`))
                 }>{project.projetTitle}</div>)
            }
+           <button onClick={()=> (history.push(`/project-form`))}>Start New Project</button>
         </div>
     );
 };
