@@ -15,7 +15,7 @@ const Dashboard = () => {
 
     return(
         <div>
-            <h1>Hello</h1>
+            <h1>HELLO YOU</h1>
            {
                projectDataState.map((project, index) =>
                 <div 
