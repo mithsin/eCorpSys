@@ -6,7 +6,6 @@ import styles from './styles.module.scss';
 
 const ProjectForm = () => {
     const [formInputs, setFormInputs] = useState({});
-    const [inputSubmittals, setInputSubmittals] = useState(inputSubmittals)
     
     const formInputChange = (e) => {
         
@@ -28,22 +27,25 @@ const ProjectForm = () => {
     };
     return(
         <div className={styles.ProjectFormWrapper}>
-            {
-                inputSettings.map((inputSetting, index)=>
-                    <MuiInputField
-                        key={`${index}-inputsetting`}
-                        bgColor="#fff"
-                        type={inputSetting.type}
-                        name={inputSetting.name}
-                        label={inputSetting.placeholder}
-                        {...(inputSetting.required && {required: inputSetting.required})}
-                        onChange={ formInputChange }/>
-                )
-            }
+            <h1>New Project Form</h1>
+            <div className={styles.InputWrapper}>
+                {
+                    inputSettings.map((inputSetting, index)=>
+                        <MuiInputField
+                            key={`${index}-inputsetting`}
+                            bgColor="#fff"
+                            type={inputSetting.type}
+                            name={inputSetting.name}
+                            label={inputSetting.placeholder}
+                            {...(inputSetting.required && {required: inputSetting.required})}
+                            onChange={ formInputChange }/>
+                    )
+                }
+            </div>
             <MuiButton 
                 bgColor="#fff"
                 labelColor="#000"
-                label="SUBMIT"
+                label="CREATE PROJECT"
                 onClick={ onClickAddProject }/>
         </div>
     );

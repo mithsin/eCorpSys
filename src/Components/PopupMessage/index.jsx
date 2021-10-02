@@ -33,15 +33,11 @@ const PopupMessage = ({edit=false, newKey, viewItem, setShowMessage, formInputCh
                         </div>
                         <div className={styles.ButtonWrap}>
                         <MuiButton 
-                            bgColor="#fff"
+                            bgColor="#000"
+                            hbgColor="#fff"
                             labelColor="#000"
                             label="SUBMIT"
                             onClick={ onClickSubmit }/>
-                        <MuiButton 
-                            bgColor="#fff"
-                            labelColor="#000"
-                            label="Cancel"
-                            onClick={ onClickCancel }/>
                         </div>
                     </>}
                 </div>

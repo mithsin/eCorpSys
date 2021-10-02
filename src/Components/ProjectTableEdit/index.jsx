@@ -20,16 +20,11 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
         }
     },[formInputs])
     const formInputChange = (e, item) => {
-        console.log('e.target-->: ', e)
-        console.log('e.target.type-->: ', e.target.type)
-        console.log('e-check-type === checkbox -->: ', e.target.type === 'checkbox' )
-        console.log('e.target.checked-->: ', e.target.checked)
         const newObj = {
             ...item,
             [e.target.name]: (e.target.type === 'checkbox' && e.target.checked) || e.target.value
         }
         const updateList = list.map(list => list.id === item.id ? newObj : list);
-        console.log('updateList--->: ', updateList)
         setFormInputs(updateList)
     };
 
@@ -37,9 +32,9 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
         setFormInputs(list.concat(newObjLine))
     }
     const onClickRemoveLine = (id) => {
-        setFormInputs(formInputs.filter(item => item.id !== id))
+        const updateList = list.filter(item => item.id !== id);
+        setFormInputs(updateList)
     }
-
     return(
         <div className="ProjectTableWrapper">
 
@@ -87,7 +82,7 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
                                                 <button onClick={()=>{
                                                     setShowMessage(!showMessage)
                                                     setViewItem(item)
-                                                    }}>View History</button>
+                                                    }}>Edit Status</button>
                                             </td>
                                             : <td key={`${newKey}Edit-input-${index}`}>
                                                 <MuiInputField

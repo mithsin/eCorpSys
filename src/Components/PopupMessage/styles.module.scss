@@ -43,6 +43,9 @@
     height: 30%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: calc(100% - 32px);
 }
 .ButtonWrap {
     display: flex;

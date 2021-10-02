@@ -40,7 +40,7 @@ const MobileTableEdit = ({inputField, formInputChange, setShowMessage, showMessa
                 <button onClick={()=>{
                     setShowMessage(!showMessage)
                     setViewItem(item)
-                    }}>View History</button>
+                    }}>Edit Status</button>
             </div>
         </div>
     );

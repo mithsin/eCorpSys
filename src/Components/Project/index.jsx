@@ -4,9 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Edit, Backup } from '@mui/icons-material';
 import { projectsState, getProjectData, updateProjectData } from 'States/projectSlice';
 import ProjectHeader from 'Components/ProjectHeader';
-import SubmittalsTable from 'Components/SubmittalsTable';
-import MaterialTable from 'Components/MaterialTable';
-import InstallationTable from 'Components/InstallationTable';
 import { submittalsSetting, materialSetting, installationSetting } from './formatSetting';
 
 import ProjectTable from 'Components/ProjectTable';
