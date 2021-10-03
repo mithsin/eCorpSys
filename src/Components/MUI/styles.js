@@ -33,6 +33,8 @@ export const useInputStyles = makeStyles({
       width: props.width || "100%",
       maxWidth: props.maxWidth || "100%",
       minWidth: props.minWidth || "100%",
+      margin: props.margin,
+      padding: props.padding,
     }
   }
 });

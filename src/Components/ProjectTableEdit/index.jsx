@@ -6,7 +6,7 @@ import PopupMessage from 'Components/PopupMessage';
 import useCurrentWidth from 'hooks/useCurrentWidth';
 import styles from './styles.module.scss';
 
-const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, newKey, headTitles, title, list=[{}]}) => {
+const ProjectTableEdit = ({setInputChanged, edit, setEdit, setProject, project, newObjLine, inputField, newKey, headTitles, title, list=[{}]}) => {
     const [formInputs, setFormInputs] = useState();
     const { MOBILE_VIEW } = useCurrentWidth();
     const [showMessage, setShowMessage] = useState(false);
@@ -20,6 +20,7 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
         }
     },[formInputs])
     const formInputChange = (e, item) => {
+        setInputChanged(true)
         const newObj = {
             ...item,
             [e.target.name]: (e.target.type === 'checkbox' && e.target.checked) || e.target.value
@@ -34,6 +35,7 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
     const onClickRemoveLine = (id) => {
         const updateList = list.filter(item => item.id !== id);
         setFormInputs(updateList)
+        setEdit(false)
     }
     return(
         <div className="ProjectTableWrapper">
@@ -95,9 +97,9 @@ const ProjectTableEdit = ({edit, setProject, project, newObjLine, inputField, ne
                                             </td>
                                     })
                                 }
-                                {/* <td>
+                                <td>
                                     <RemoveCircle sx={{ color: "red" }} onClick={()=>onClickRemoveLine(item.id)}/>
-                                </td> */}
+                                </td>
                             </tr>
                         })}
                     </tbody>

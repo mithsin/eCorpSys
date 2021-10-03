@@ -1,9 +1,7 @@
 import React from 'react';
 import {Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import {
-  isSignIn
-} from './States/userSlice';
+import { isSignIn } from './States/userSlice';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const userSignIn = useSelector(isSignIn);

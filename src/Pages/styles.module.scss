@@ -6,12 +6,12 @@
   display: flex;
 }
 
-.outter-block {
+.outterblock {
   display: flex;
   justify-content: center;
   flex: 1;
 }
-.inner-block {
+.innerblock {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -32,9 +32,7 @@ input{
   height: 40px;
   width: 100%;
 }
-.InputWrapper {
 
-}
 // ProjectForm.jsx
 .ProjectFormWrapper {
   padding: 1rem;

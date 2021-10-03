@@ -16,3 +16,14 @@
     border-radius: 4px;
     cursor: pointer;
 }
+.EditDisabled {
+    color: white;
+    background-color:rgb(134, 134, 134);
+    font-size: 2rem;
+    border: 1px solid black;
+    width: 100px;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 4px;
+    cursor: not-allowed;
+}

@@ -17,6 +17,7 @@ export const inputSettings = [
         type: "date",
         name: "projectDate",
         placeholder: "Project Date",
+        value: null,
         required: true
     },{
         type: "text",
@@ -25,6 +26,7 @@ export const inputSettings = [
     },{
         type: "date",
         name: "subcontractDate", 
+        value: null,
         placeholder: "Subcontract Date"
     },{
         type: "text",

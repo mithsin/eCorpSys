@@ -9,6 +9,7 @@ import Checkbox from '@mui/material/Checkbox';
 const MuiInputField = ({
   props, 
   defaultValue,
+  value,
   required,
   type,
   name, 
@@ -17,20 +18,18 @@ const MuiInputField = ({
   onChange,
   onKeyPress
 }) => {
-    const [value, setValue] = React.useState(new Date());
     const classes = useInputStyles(props);
     return (
       <>
       {(type === "date") && 
       <DesktopDatePicker
           label={label}
-          value={defaultValue}
+          { ...value ? {value: value} : {value: null}}
           name={name}
           minDate={new Date('2017-01-01')}
           onChange={e => onChange({type, name, value: e})}
           renderInput={(params) => <TextField {...params} />}
         />}
-      
       {(type === "text") && <TextField
         className={classes.inputStyle}
         label={label}
@@ -45,14 +44,30 @@ const MuiInputField = ({
         { ...onKeyPress && {onKeyPress: onKeyPress}}
         // InputProps={{ classes, disableunderline: "true" }} 
         />
-    }
-    {(type === 'checkbox') && 
-      <Checkbox
-        name={name}
-        label={label}
-        onChange={onChange}
-        onKeyPress={onKeyPress}
-        {...defaultValue && {defaultChecked: true}} />}
+      }
+      {(type === "password") && <TextField
+          className={classes.inputStyle}
+          label={label}
+          {...{required: required}}
+          type={'password'}
+          name={name}
+          variant="outlined"
+          helperText={helperText}
+          onChange={onChange}
+          { ...{helperText: helperText}}
+          { ...defaultValue && {defaultValue: defaultValue}}
+          { ...onKeyPress && {onKeyPress: onKeyPress}}
+          // InputProps={{ classes, disableunderline: "true" }} 
+          />
+      }
+      {(type === 'checkbox') && 
+        <Checkbox
+          name={name}
+          label={label}
+          onChange={onChange}
+          onKeyPress={onKeyPress}
+          {...defaultValue && {defaultChecked: true}} />
+      }
     </>
 )};
 

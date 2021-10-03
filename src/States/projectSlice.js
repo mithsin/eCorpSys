@@ -57,7 +57,7 @@ export const updateProjectData = ( project ) => dispatch => {
 }
 
 export const createNewProject = ( newProject ) => dispatch => {
-    axios.put(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project`, newProject)
+    axios.post(`https://x720g3g70f.execute-api.us-east-1.amazonaws.com/api/project`, newProject)
     .then(res => 
         dispatch(setProjectState(res.data))
     )

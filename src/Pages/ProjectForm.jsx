@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import {MuiButton, MuiInputField} from 'Components/MUI';
 import { v4 as uuidv4 } from 'uuid';
-import {inputSettings, } from './formFormat';
+import { useDispatch } from 'react-redux';
+import { createNewProject } from 'States/projectSlice';
+import moment from 'moment';
+import { inputSettings, } from './formFormat';
 import styles from './styles.module.scss';
 
 const ProjectForm = () => {
+    const dispatch = useDispatch();
     const [formInputs, setFormInputs] = useState({});
     
     const formInputChange = (e) => {
@@ -12,7 +16,7 @@ const ProjectForm = () => {
         if (e.type === 'date'){
             setFormInputs({ 
                 ...formInputs,
-                [e.name]: e.value
+                [e.name]: moment(e.value).format('L')
             })
         } else {
             setFormInputs({ 
@@ -23,7 +27,7 @@ const ProjectForm = () => {
     };
 
     const onClickAddProject = () => {
-        console.log('formInputs->: ', formInputs)
+        dispatch(createNewProject({...formInputs, projectId: `project-${uuidv4()}`}))
     };
     return(
         <div className={styles.ProjectFormWrapper}>

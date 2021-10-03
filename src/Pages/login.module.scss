@@ -1,0 +1,94 @@
+//Header
+ 
+.headerBlock {
+    position: relative;
+    flex-grow: 1; 
+}
+
+.outterblock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    height: 100vh;
+    align-items: center;
+}
+.innerblock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // border: 1px solid black;
+    text-align: center;
+    width: 300px;
+    padding: 10px;
+}
+
+input{
+margin-bottom: 8px;
+text-align: center;
+height: 40px;
+}
+
+.formWrapper {
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin-bottom: 10px;
+min-width: 300px;
+min-height: 400px;
+}
+
+.authButton {
+margin-bottom: 10px;
+height: 40px;
+width: 100%;
+}
+
+.logButtonWrapper {
+// padding: 50px 0;
+// max-width: 500px;
+width: 100%;
+// margin: auto;
+button {
+    width: 50%;
+}
+// button:last-child {
+//   margin-left: 2%;
+// }
+}
+.DashBoardIcons {
+padding: 8px 0;
+display: flex;
+justify-content: center;
+}
+
+.DashBoardIconsWrapper {
+display: flex;
+justify-content: center;
+}
+
+@media only screen and (max-width: 728px) {
+.cardListWrapper {
+    display: flex;
+    flex-direction: column;
+    // border-bottom: 1px solid;
+    margin-bottom: 20px;
+    >span {
+    font-size: 36;
+    font-weight: 600;
+    }
+    .cardListCtn {
+    display: flex;
+    flex-direction: column;
+    margin: unset;
+    }
+}
+
+}
+
+@media only screen and (max-width: 550px) {
+.logoClass {
+    width: 70%;
+}
+}
