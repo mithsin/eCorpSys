@@ -6,6 +6,7 @@ import { projectsState, getProjectData, updateProjectData } from 'States/project
 import ProjectHeader from 'Components/ProjectHeader';
 import { submittalsSetting, materialSetting, installationSetting } from './formatSetting';
 import { isSignIn } from 'States/userSlice';
+import { userLogout } from 'States/cognitoSlice';
 
 import ProjectTable from 'Components/ProjectTable';
 import ProjectTableEdit from 'Components/ProjectTableEdit';
@@ -34,6 +35,9 @@ const Project = () => {
     }
     return(
         <div>
+            <div>
+                <button onClick={dispatch(userLogout())}>logout</button>
+            </div>
             {userSignIn && <a style={{"float": "left", "margin": "1rem"}} href='/'>back</a>}
             <ProjectHeader {...project}/>
             {userSignIn && <div className={styles.ButtonWrapper}>
