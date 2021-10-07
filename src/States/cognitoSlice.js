@@ -96,8 +96,6 @@ export const userLogout = ({history}) => dispatch => {
             userName: '',
             eMail: '',
             date: '',
-            givingList: [],
-            receivingList: [],
             isSignIn: false,
         }));
         userPool.getCurrentUser().signOut();

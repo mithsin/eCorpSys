@@ -7,6 +7,7 @@ import ProjectHeader from 'Components/ProjectHeader';
 import { submittalsSetting, materialSetting, installationSetting } from './formatSetting';
 import { isSignIn } from 'States/userSlice';
 import { userLogout } from 'States/cognitoSlice';
+import { useHistory } from 'react-router-dom'
 
 import ProjectTable from 'Components/ProjectTable';
 import ProjectTableEdit from 'Components/ProjectTableEdit';
@@ -15,6 +16,7 @@ import styles from './styles.module.scss';
 
 const Project = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const userSignIn = useSelector(isSignIn);
     const projectDataState = useSelector(projectsState);
     const {projectId} = useParams();
@@ -36,7 +38,7 @@ const Project = () => {
     return(
         <div>
             <div>
-                <button onClick={dispatch(userLogout())}>logout</button>
+                <button onClick={()=>dispatch(userLogout({history}))}>logout</button>
             </div>
             {userSignIn && <a style={{"float": "left", "margin": "1rem"}} href='/'>back</a>}
             <ProjectHeader {...project}/>
